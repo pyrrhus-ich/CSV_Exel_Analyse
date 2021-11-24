@@ -2,7 +2,7 @@ import openpyxl as op
 
 import openpyxl as op
 
-#Lädt das Excel File und schreibt die Werte in eine Liste
+#Lädt das Excel File und schreibt die Werte des gesamten Files eine Liste
 def readSrcFile(ExcelSrc, srcList):
     wb = op.load_workbook(ExcelSrc,data_only=True) # lädt das File
     ws = wb.worksheets[0]
