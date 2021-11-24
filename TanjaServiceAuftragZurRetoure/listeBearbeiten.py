@@ -12,12 +12,12 @@ def sortiereAuftragsnummernZIR(ursprungsListe, korrekteAufträge, inkorrekteAuft
             else:
                 inkorrekteAufträge.append(el)
 
-def durchsucheInkorrekteAufträge(urprungsliste, korrekteAufträge):
+def durchsucheInkorrekteAufträge(urprungsliste, korrekteAufträge, lenEl):
     for el in urprungsliste:
-        if el[0][0] == "S" or el[0][0]=="M" and len(el[0]) == 10:
+        if el[0][0] == "S" or el[0][0]=="M" and len(el[0]) == lenEl:
             if el[0][4]== "-":
-                korrekteAufträge.append(el[0])
-                inkorrekteAuftragsnummern.remove(el)
+                korrekteAufträge.append(el[0][:10])
+                urprungsliste.remove(el)
 
 
 
