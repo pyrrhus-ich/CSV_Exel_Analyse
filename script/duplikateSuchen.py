@@ -12,8 +12,4 @@ def chForDup(src):
     else:
         print("Anzahl der Duplikate : " + str(len(src) - len(set(src))))
 
-def crDupList(src, dst):
-    for val in src:
-        for el in src:
-            if val == el:
-                dst.append(el)
+
