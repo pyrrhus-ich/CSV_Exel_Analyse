@@ -1,5 +1,35 @@
 from settings import *
 
+
+#durchsucht die eingelesene Liste nach Übereinstimmungen mit ZIR SR Nummern
+def sortiereAuftragsnummernZIR(ursprungsListe, korrekteAufträge, inkorrekteAufträge):
+    for el in ursprungsListe:
+        if el[0][0] == "S" or el[0][0]=="M" and len(el[0]) <= 11:
+            var = el[0]
+            if var.endswith("-"):
+                zirEl = var.rstrip("-")
+                korrekteAufträge.append(zirEl)
+            else:
+                inkorrekteAufträge.append(el)
+
+def durchsucheInkorrekteAufträge(urprungsliste, korrekteAufträge, lenEl):
+    for el in urprungsliste:
+        if el[0][0] == "S" or el[0][0]=="M" and len(el[0]) == lenEl:
+            if el[0][4]== "-":
+                korrekteAufträge.append(el[0][:10])
+                urprungsliste.remove(el)
+
+
+
+
+
+
+
+
+
+
+
+
 # Baut die eindeutige Retourennummer im Format M199-12345687 zusammen und fügt sie am index 2 in 
 # das entsprechende List element ein
 def retZusammengesetzt(src):
